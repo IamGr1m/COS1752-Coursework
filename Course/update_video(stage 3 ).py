@@ -31,9 +31,6 @@ class update_video:
         update_btn = tk.Button(window, text="Update Video", command=self.update_video_clicked)
         update_btn.grid(row=0, column=4, padx=10, pady=10)
 
-        check_video_btn = tk.Button(window, text="Check Video", command=self.check_video_clicked)
-        check_video_btn.grid(row=0, column=3, padx=10, pady=10)
-
         self.list_txt = tkst.Text(window, width=35, height=8, wrap="none")
         self.list_txt.grid(row=1, column=3, columnspan=3, sticky="W", padx=10, pady=10)
 
@@ -61,19 +58,6 @@ class update_video:
         self.update_display()
         self.status_lbl.configure(text="Update Videos button was clicked!")
 
-    def check_video_clicked(self):
-        key = self.key_input_txt.get()
-        name = VideoLibrary().get_name(key)
-        if name is not None:
-            director = self.videolibrary.get_director(key) 
-            rating = self.videolibrary.get_rating(key)
-            video_details = f"{name}\n{director}\nrating: {rating}"
-            set_text(self.list_txt, video_details)
-        elif name is None:
-            set_text(self.list_txt, "Please enter valid number")
-        else:
-            set_text(self.list_txt, f"Video {key} not found")
-        self.status_lbl.configure(text="Check Video button was clicked!")
 
 if __name__ == "__main__":  
     window = tk.Tk()        
