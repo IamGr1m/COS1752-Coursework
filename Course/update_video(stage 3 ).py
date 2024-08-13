@@ -47,13 +47,17 @@ class update_video:
 
     def update_video_clicked(self): 
         key = self.key_input_txt.get()
+        name = self.videolibrary.get_name(key)
         try:
             rating = int(self.rating_input_txt.get())
-            if rating >=0 and rating <=5:
-                self.videolibrary.set_rating(key, rating)
+            if name is not None:
+                if rating >=0 and rating <=5:
+                    self.videolibrary.set_rating(key, rating)
+                else:
+                    messagebox.showerror("Error", "Please enter 0-5 rating")
+                self.update_display()
             else:
-                messagebox.showerror("Error", "Please enter 0-5 rating")
-            self.update_display()
+                messagebox.showerror("Error", "Please enter valid number")
         except:
             messagebox.showerror("Error", "Please enter valid number")
         self.status_lbl.configure(text="Update Videos button was clicked!")
