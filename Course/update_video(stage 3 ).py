@@ -53,9 +53,9 @@ class update_video:
                 self.videolibrary.set_rating(key, rating)
             else:
                 messagebox.showerror("Error", "Please enter 0-5 rating")
+            self.update_display()
         except:
             messagebox.showerror("Error", "Please enter valid number")
-        self.update_display()
         self.status_lbl.configure(text="Update Videos button was clicked!")
 
 
