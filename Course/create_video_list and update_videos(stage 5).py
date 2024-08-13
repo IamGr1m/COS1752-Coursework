@@ -14,7 +14,7 @@ def set_text(text_area, content):
 class Playlist:
     def __init__(self,window):
         window.geometry("900x450")
-        window.title("Create Video List")
+        window.title("Video Player")
         self.videos = []
         self.position = 0
         self.num = 0
