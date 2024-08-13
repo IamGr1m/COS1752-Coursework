@@ -169,7 +169,7 @@ class Playlist:
             else:
                 messagebox.showerror("Error", "Please enter 0-5 rating")
         except:
-            messagebox.showerror("Error", "Please enter 0-5 rating")
+            messagebox.showerror("Error", "Please enter valid number")
         self.status_lbl.configure(text="Update Videos button was clicked!")
 
     def update_display(self):  
